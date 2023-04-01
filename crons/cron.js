@@ -24,6 +24,7 @@ cron.schedule('*/30 * * * * *', async() => {
                 console.log(err.message+"error aa gya");
             }else{
                 savedNotification = await ticketNotificationModel.findOne({_id: notification._id});
+                console.log("Email Sent")
                 savedNotification.sentStatus = "SENT";
                 await savedNotification.save();
             }
